@@ -1,3 +1,5 @@
+Tested on Ubuntu 20.0.4 subsystem for windows, using python 3.8 .
+
 The script uses Neural TTS by mozilla; https://github.com/mozilla/TTS
 
 Find installation guide here: https://github.com/mozilla/TTS/wiki/TTS-Notebooks-and-Tutorials ; English - LJSpeech + MultiBandMelGAN + Tacotorn2(DDC): On CPU real-time speech synthesis with PyTorch
