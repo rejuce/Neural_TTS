@@ -1,0 +1,25 @@
+The script uses Neural TTS by mozilla; https://github.com/mozilla/TTS
+
+Find installation guide here: https://github.com/mozilla/TTS/wiki/TTS-Notebooks-and-Tutorials ; English - LJSpeech + MultiBandMelGAN + Tacotorn2(DDC): On CPU real-time speech synthesis with PyTorch
+
+Overal most of the script they use is the same code; but there is a loop included that takes the input file and synthesizes sentece by sentece.
+
+Another script is then used to merge these .wav files into one big wav file.
+
+Here and there, even though rare, the script does a hiccup or gets stuck, it will then usually skip a sentence.
+
+### Setup ###
+1. Clone the git https://github.com/mozilla/TTS; or use the notebook mentioned above to install the script.
+
+2. Copy the script "synth_long_for_batch.py" into the main folder where you have your config.json.
+
+3. Make a folder batch, containing the following folders: in, out . in this folder copy the script "merging_wavs.py".
+
+4. Fill the in folder with as many text files as you want to synthesize as a single line text file per text you want to synth.
+
+5. run the script "synth_long_for_batch.py", this will now synth sentence for sentence all your files in the "in" folder
+
+6. after the synthesizing is done, run the script "merging_wavs.py" . the merged files are in the out folder.
+
+
+
