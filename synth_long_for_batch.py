@@ -11,7 +11,9 @@ import os
 def tts(text,out_path):
     t_1 = time.time()
    # curl -G --output -  --data-urlencode 'text=Welcome to the world of speech synthesis!'  'http://localhost:5002/api/tts' > out_path
-    os.system('curl -G --output /home/jk/test/sc.wav  --data-urlencode text="Welcome to the world of speech synthesis!"  http://localhost:5002/api/tts')
+   # os.system('curl -G --output /home/jk/test/sc.wav  --data-urlencode text="Welcome to the world of speech synthesis!"  http://localhost:5002/api/tts')
+        os.system('curl -G --output ' +out_path + ' --data-urlencode text="' + text +'"  http://localhost:5002/api/tts')
+
     #subprocess.call([
     #'curl',
     #'-G',
