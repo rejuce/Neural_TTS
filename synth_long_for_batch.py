@@ -30,6 +30,8 @@ import librosa
 ignore_these = ""
 in_file_location = "/home/jk/test/in"
 list_files = os.listdir(in_file_location)
+regex = re.compile('^[A-Za-z0-9]*$')
+
 
 import signal
 
