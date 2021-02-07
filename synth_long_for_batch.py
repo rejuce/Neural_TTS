@@ -17,7 +17,7 @@ def tts(text,out_path):
     '--output',
     '--data-urlencode',
     'text=Welcome to the world of speech synthesis!',
-    'http://localhost:5002/api/tts' > out_path'
+    ''http://localhost:5002/api/tts' > out_path'
         
     #flow_x,
     #'http://localhost:8080/firewall/rules/0000000000000001'
