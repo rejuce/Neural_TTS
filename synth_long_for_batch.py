@@ -113,7 +113,7 @@ import librosa as lb
 regex = re.compile('^[A-Za-z0-9]*$')
 
 ignore_these = ""
-in_file_location = "/ikola/Documents/TTS/tacotron/batch/in"
+in_file_location = "in"
 list_files = os.listdir(in_file_location)
 
 import signal
