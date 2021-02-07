@@ -10,7 +10,18 @@
 
 def tts(text,out_path):
     t_1 = time.time()
-    curl -G --output -  --data-urlencode 'text=Welcome to the world of speech synthesis!'  'http://localhost:5002/api/tts' > out_path
+   # curl -G --output -  --data-urlencode 'text=Welcome to the world of speech synthesis!'  'http://localhost:5002/api/tts' > out_path
+    subprocess.call([
+    'curl',
+    '-G',
+    '--output',
+    '--data-urlencode',
+    ''text=Welcome to the world of speech synthesis!'',
+    ''http://localhost:5002/api/tts' > out_path'
+        
+    #flow_x,
+    #'http://localhost:8080/firewall/rules/0000000000000001'
+])
     print(" > Run-time: {}".format(time.time() - t_1))
       
     return null
