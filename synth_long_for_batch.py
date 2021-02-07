@@ -6,7 +6,7 @@
 
 
 
-import scipy.io.wavfile
+#import scipy.io.wavfile
 
 def tts(text,out_path):
     t_1 = time.time()
@@ -25,7 +25,7 @@ import re
 import os
 
 import time
-import IPython
+#import IPython
 import librosa
 ignore_these = ""
 in_file_location = "/home/jk/test/in"
