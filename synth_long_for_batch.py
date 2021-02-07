@@ -10,7 +10,9 @@
 
 def tts(text,out_path):
     t_1 = time.time()
-    
+    curl -G --output - \
+    --data-urlencode 'text=Welcome to the world of speech synthesis!' \
+    'http://localhost:5002/api/tts' > out_path
     print(" > Run-time: {}".format(time.time() - t_1))
       
     return null
