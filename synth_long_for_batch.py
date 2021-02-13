@@ -10,9 +10,13 @@ import os
 
 def tts(text,out_path):
     t_1 = time.time()
+    cmd = 'curl -G --output ' +out_path + ' --data-urlencode text="' + text +'"  http://localhost:5002/api/tts' +"\n"
+    
+    print(cmd)
    # curl -G --output -  --data-urlencode 'text=Welcome to the world of speech synthesis!'  'http://localhost:5002/api/tts' > out_path
    # os.system('curl -G --output /home/jk/test/sc.wav  --data-urlencode text="Welcome to the world of speech synthesis!"  http://localhost:5002/api/tts')
-    os.system('curl -G --output ' +out_path + ' --data-urlencode text="' + text +'"  http://localhost:5002/api/tts')
+    
+    os.system(cmd)
 
     #subprocess.call([
     #'curl',
@@ -58,8 +62,12 @@ signal.signal(signal.SIGALRM, handler)
 
 ##how long may a synth take
 max_time_synth= 90
-min_len_sentence = 10
+min_len_sentence = 3
 
+import nltk
+nltk.download('punkt')
+
+from nltk.tokenize import sent_tokenize 
 
 for files in list_files:
     print(files)
@@ -67,22 +75,24 @@ for files in list_files:
         sentence_short = ""
         for lines in f:
             text = lines
-            text_temp1 = re.sub("[\(\[].*?[\)\]]", "", text)
-            sentence_split = text_temp1.split(".")
+            #text_temp1 = re.sub("[\(\[].*?[\)\]]", "", text)
+            #sentence_split = text_temp1.split(".")
+            sentence_split=sent_tokenize(text)
             i = 1
             for sentences in sentence_split:
                 signal.alarm(max_time_synth)
                 i += 1
-                sentence_temp = regex.sub(' ', sentences)
-                sentence_temp2 = re.sub(' +', ' ',sentence_temp)
-                sentence = sentence_temp2
+              #  sentence_temp = regex.sub(' ', sentences)
+               # sentence_temp2 = re.sub(' +', ' ',sentence_temp)
+              #  sentence = sentence_temp2
+                sentence = sentences
                 if len(sentence.split()) <= min_len_sentence:
                     sentence_short += sentence
                 else:
-                    sentence += sentence_short
-                    sentence_to_filter = sentence.lower()
-                    sentence_len_filter = sentence.split()
-                    if sentence_to_filter.islower() and (len(sentence_len_filter) >= min_len_sentence ):
+                    #sentence += sentence_short
+                    #sentence_to_filter = sentence.lower()
+                   # sentence_len_filter = sentence.split()
+                   # if sentence_to_filter.islower() and (len(sentence_len_filter) >= min_len_sentence ):
                         print(sentence)
                         print(str(i) + ".wav")
                         temp_path = "/home/jk/test/out"
